@@ -10,13 +10,13 @@ Project uses roslyn and msbuild features to generate client code onfly from comp
 - .CommonData contains definition for nuget package
 
 **How to use** 
-1. Build MSBuildTask.sln solution
-2. Build Nuget package from .CommonData\Packages\
-3. Create new c# project
-4. Install Nuget package from step 2
-5. Add NSwagClientAttribute to any class in project from step 3
-6. Compile
-7. Optional step is to look into build warnings. Task will notify you that some files contains NSwag client definitions and have no ```<Generator>MSBuild:UpdateSwaggerClients</Generator>``` msbuild item metadata. This metadata adds ability to change client definition code on fly. Don't forget to reload project after manual change.
+- Build MSBuildTask.sln solution
+- Build Nuget package from .CommonData\Packages\
+- Create new c# project
+- Install Nuget package from step 2
+- Add NSwagClientAttribute to any class in project from step 3
+- Compile
+- Optional step is to look into build warnings. Task will notify you that some files contains NSwag client definitions and have no <Generator>MSBuild:UpdateSwaggerClients</Generator> msbuild item metadata. This metadata adds ability to change client definition code on fly. Don't forget to reload project after manual change.
 
 **Available attributes**
 
