@@ -28,33 +28,5 @@ namespace NSwag.API.Attributes
         public DeclarationType Type { get; }
 
         #endregion
-
-        //    {
-        //    switch (Source)
-        //    var path = GetDocumentPath(replacer);
-        //{
-
-        //public string GetDocument(Replacer replacer)
-        //        case DocumentSource.Local:
-
-        //            if (!File.Exists(path)) throw new FileNotFoundException("Swagger document not found", path);
-        //            return File.ReadAllText(path);
-        //        case DocumentSource.Remote:
-        //            throw new NotImplementedException();
-        //        default:
-        //            throw new ArgumentOutOfRangeException();
-        //    }
-        //}
-
-        //public uint GetDocumentCacheKey(Replacer replacer)
-        //{
-        //    var path = replacer.Replace(DocumentPath);
-        //    return (uint)Source.GetHashCode().MergeHash(path.GetHashCode());
-        //}
-
-        //public string GetDocumentPath(Replacer replacer)
-        //{
-        //    return replacer.Replace(DocumentPath);
-        //}
     }
 }
