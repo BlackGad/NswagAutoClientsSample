@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package >
+	<metadata>
+		<id>NSwag.MSBuild.Example</id>
+		<version>$version$</version>
+		<authors>Shkolka Vladimir</authors>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>MSBuild tasks for NSwag magic integration</description>
+		<releaseNotes/>
+		<frameworkAssemblies>
+			<frameworkAssembly assemblyName="System.Runtime.Serialization"/>
+			<frameworkAssembly assemblyName="System.ComponentModel.DataAnnotations"/>
+		</frameworkAssemblies>
+		<dependencies>
+			<dependency id="Newtonsoft.Json" version="9.0.1" />
+		</dependencies>
+		<references>
+			<reference file="NSwag.API.dll"/>
+		</references>
+	</metadata>
+	<files>
+		<file src="Build\NSwag.MSBuild.Example.props" target="build" />
+		<file src="Build\NSwag.MSBuild.Example.targets" target="build" />
+
+		<file src="..\..\NSwag.API\bin\Release\NSwag.API.dll" target="lib\net461" />
+		<file src="..\..\NSwag.MSBuild\bin\Release\*.dll" target="tasks\MSBuild" />
+	</files>
+</package>

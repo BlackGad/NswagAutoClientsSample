@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0" DefaultTargets="Build">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <UsingTask TaskName="NSwag.MSBuild.Tasks.NSwagGenerateCodeTask" AssemblyFile="d:\Projects\NswagAutoClientsSample\NSwag.MSBuild\bin\Debug\NSwag.MSBuild.dll" />
+  <UsingTask TaskName="NSwag.MSBuild.Tasks.NSwagAnalyzeCodeTask" AssemblyFile="d:\Projects\NswagAutoClientsSample\NSwag.MSBuild\bin\Debug\NSwag.MSBuild.dll" />
+  <Target Name="UpdateSwaggerClients" BeforeTargets="CoreCompile" DependsOnTargets="_GenerateSwaggerClients">
+    <ItemGroup>
+      <Compile Include="@(NSwagClients)" />
+      <FileWrites Include="@(NSwagClients)" />
+    </ItemGroup>
+  </Target>
+  <Target Name="_GenerateSwaggerClients" DependsOnTargets="_EnumerateSwaggerClients" Inputs="$(MSBuildProjectFile);%(NSwagClients.Source)" Outputs="@(NSwagClients)">
+    <NSwagGenerateCodeTask NSwagClients="@(NSwagClients)" IntermediateOutputPath="$(IntermediateOutputPath)" Configuration="$(Configuration)" PlatformTarget="$(PlatformTarget)" ProjectDir="$(ProjectDir)" ProjectExt="$(ProjectExt)" ProjectName="$(ProjectName)" SolutionDir="$(SolutionDir)" SolutionExt="$(SolutionExt)" SolutionName="$(SolutionName)" TargetDir="$(TargetDir)" TargetExt="$(TargetExt)" TargetName="$(TargetName)" CustomLocations="$(NSwagCustomLocations)" />
+  </Target>
+  <Target Name="_EnumerateSwaggerClients">
+    <NSwagAnalyzeCodeTask Compile="@(Compile)" IntermediateOutputPath="$(IntermediateOutputPath)">
+      <Output TaskParameter="NSwagClients" ItemName="NSwagClients" />
+    </NSwagAnalyzeCodeTask>
+  </Target>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5EB2E1C2-0AAC-4AEE-9C2A-358243F28D11}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Application.Clients</RootNamespace>
+    <AssemblyName>Application.Clients</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    
+    <Compile Include="ItemWithClient.cs">
+      <Generator>MSBuild:UpdateSwaggerClients</Generator>
+    </Compile>
+    <Compile Include="Properties\ItemWithOutClient.cs">
+      <Generator>MSBuild:UpdateSwaggerClients</Generator>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NSwag.API\NSwag.API.csproj">
+      <Project>{88f974cf-34df-456b-9cd1-cebd3cba2166}</Project>
+      <Name>NSwag.API</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

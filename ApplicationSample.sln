@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.Clients", "Application.Clients\Application.Clients.csproj", "{5EB2E1C2-0AAC-4AEE-9C2A-358243F28D11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSwag.API", "NSwag.API\NSwag.API.csproj", "{88F974CF-34DF-456B-9CD1-CEBD3CBA2166}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FromPackage", "FromPackage", "{55210EF6-BE52-47F7-AD85-A1558574F4D9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5EB2E1C2-0AAC-4AEE-9C2A-358243F28D11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EB2E1C2-0AAC-4AEE-9C2A-358243F28D11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EB2E1C2-0AAC-4AEE-9C2A-358243F28D11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EB2E1C2-0AAC-4AEE-9C2A-358243F28D11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88F974CF-34DF-456B-9CD1-CEBD3CBA2166}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88F974CF-34DF-456B-9CD1-CEBD3CBA2166}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88F974CF-34DF-456B-9CD1-CEBD3CBA2166}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88F974CF-34DF-456B-9CD1-CEBD3CBA2166}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{88F974CF-34DF-456B-9CD1-CEBD3CBA2166} = {55210EF6-BE52-47F7-AD85-A1558574F4D9}
+	EndGlobalSection
+EndGlobal
