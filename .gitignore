@@ -45,3 +45,12 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+/.vs
+/_ReSharper.Caches
+/packages
+/NSwag.API/obj
+/NSwag.API/bin
+/NSwag.MSBuild/obj
+/NSwag.MSBuild/bin
+/NSwag.MSBuild.Tests/obj
+/NSwag.MSBuild.Tests/bin
