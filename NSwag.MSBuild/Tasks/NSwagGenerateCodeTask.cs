@@ -295,7 +295,7 @@ namespace NSwag.MSBuild.Tasks
             {
                 if (!string.IsNullOrEmpty(declaration.ResponseClass.Parsed.Name)) settings.ResponseClass = declaration.ResponseClass.Parsed.Name;
                 settings.GenerateResponseClasses = declaration.ResponseClass.Parsed.Generate;
-                settings.WrapSuccessResponses = declaration.ResponseClass.Parsed.Inject;
+                settings.WrapResponses = declaration.ResponseClass.Parsed.Inject;
                 Log.LogMessage(MessageImportance.Normal, $"    * Response class name: {settings.ResponseClass}");
                 if (settings.GenerateExceptionClasses)
                     Log.LogMessage(MessageImportance.Normal, $"    * Generate response classes: {settings.GenerateResponseClasses}");
